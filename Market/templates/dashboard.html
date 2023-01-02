@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block title %}{% endblock %}
+
+
+
+{% block content %}
+
+<html>
+    <head>
+        <style>
+            .image_div{
+                  background-image: url('static/images/images4.avif');
+                  background-repeat: no-repeat;
+                  /* background-position: center; */
+                  background-size: cover;
+                  background-position: center center;
+                  width: 1300px;
+                  height: 100vh;
+                }
+        </style>
+    </head>
+    <body class="image_div">
+        {% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
+<div class="container-fluid my-5">
+    <div  class="">
+        <h4>welcome user {{user_data}}</h4>
+        <h5>This is your market website you can purchase and sell the items</h5>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+  
+
+
+   
+{% endblock %}

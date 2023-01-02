@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block title %}{% endblock %}
+
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+
+{% if item_data %}
+    {% for item in item_data %}
+        <div class="container-fluid my-5">
+           
+            <h3>You owned {{ item.item_name }}</h3>
+            <form action="" method="POST">
+                <button type="submit" class="btn btn-dark btn-sm" name="sell_item" value="{{item.id}}">sell this item</button>
+            </form>
+        </div>
+    
+    {% endfor %}
+
+
+{% else %}
+<div class="container-fluid">
+    <div class="row">
+        <br>
+        <h3>You don't own any items</h3>
+    </div>
+</div>
+    
+
+{% endif %}
+{% endblock %}
